@@ -2,7 +2,7 @@
 # Overleaf Community Edition (overleaf/overleaf)
 # ---------------------------------------------
 
-ARG SHARELATEX_BASE_TAG=sharelatex/sharelatex-base:latest
+ARG SHARELATEX_BASE_TAG=sharelatex/sharelatex-base:arm64
 FROM $SHARELATEX_BASE_TAG
 
 WORKDIR /var/www/sharelatex
@@ -60,6 +60,16 @@ COPY server-ce/settings.js /etc/sharelatex/settings.js
 # -----------------------
 ADD server-ce/bin/grunt /usr/local/bin/grunt
 RUN chmod +x /usr/local/bin/grunt
+
+# Fix error with envsubst
+# -----------------------
+RUN apt-get update \
+&&  apt-get install -y \
+      gettext-base
+
+# Node doesn't run with this file
+# -----------------------
+RUN find / -name 'crc32c.node' -type f -delete
 
 # Set Environment Variables
 # --------------------------------

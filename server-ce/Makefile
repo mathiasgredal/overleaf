@@ -1,7 +1,7 @@
 # Makefile
 
-export SHARELATEX_BASE_TAG := sharelatex/sharelatex-base
-export SHARELATEX_TAG := sharelatex/sharelatex
+export SHARELATEX_BASE_TAG := sharelatex/sharelatex-base:arm64
+export SHARELATEX_TAG := sharelatex/sharelatex:arm64
 export SHARELATEX_BASE_CACHE := $(shell echo $(SHARELATEX_BASE_TAG) | sed -E 's/(.+):.+/\1:latest/')
 export MONOREPO_REVISION := $(shell git rev-parse HEAD)
 MONOREPO_ROOT := ../
