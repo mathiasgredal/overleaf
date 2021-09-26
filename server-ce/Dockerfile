@@ -67,6 +67,12 @@ RUN apt-get update \
 &&  apt-get install -y \
       gettext-base
 
+# Install full texlive
+RUN apt-get install -y texlive-full
+
+# Install pygments for minted
+RUN apt-get install -y python-pygments
+
 # Node doesn't run with this file
 # -----------------------
 RUN find / -name 'crc32c.node' -type f -delete

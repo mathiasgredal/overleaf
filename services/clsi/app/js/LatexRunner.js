@@ -184,6 +184,7 @@ module.exports = LatexRunner = {
       'latexmk',
       '-cd',
       '-f',
+      '-shell-escape',
       '-jobname=output',
       '-auxdir=$COMPILE_DIR',
       '-outdir=$COMPILE_DIR',
