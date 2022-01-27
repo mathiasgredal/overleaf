@@ -10,7 +10,8 @@
     "lint:fix": "../../node_modules/.bin/eslint --fix .",
     "format": "../../node_modules/.bin/prettier --list-different $PWD/'**/*.js'",
     "format:fix": "../../node_modules/.bin/prettier --write $PWD/'**/*.js'",
-    "test:ci": "npm run test:unit"
+    "test:ci": "npm run test:unit",
+    "postinstall": "patch-package"
   },
   "repository": {
     "type": "git",
@@ -20,14 +21,17 @@
   "license": "AGPL-3.0",
   "dependencies": {
     "@google-cloud/storage": "^5.1.2",
+    "@node-rs/crc32": "^1.1.0",
     "@overleaf/o-error": "^3.0.0",
     "aws-sdk": "^2.718.0",
     "fast-crc32c": "^2.0.0",
     "glob": "^7.1.6",
     "logger-sharelatex": "^2.1.1",
     "node-uuid": "^1.4.8",
+    "patch-package": "^6.4.7",
     "range-parser": "^1.2.1",
-    "tiny-async-pool": "^1.1.0"
+    "tiny-async-pool": "^1.1.0",
+    "patch-package": "^6.4.7"
   },
   "devDependencies": {
     "chai": "^4.2.0",
@@ -37,5 +41,8 @@
     "sandboxed-module": "^2.0.4",
     "sinon": "^9.0.2",
     "sinon-chai": "^3.5.0"
+  },
+  "config": {
+    "unsafe-perm": true
   }
 }
