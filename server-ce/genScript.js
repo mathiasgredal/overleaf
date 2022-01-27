@@ -28,6 +28,10 @@ switch (process.argv.pop()) {
         case 'web':
           console.log('npm ci')
           break
+        case 'docstore':
+        case 'filestore':
+          console.log('npm ci --unsafe-perm')
+          break
         default:
           // TODO(das7pad): revert back to npm ci --only=production (https://github.com/overleaf/issues/issues/4544)
           console.log('npm ci')
